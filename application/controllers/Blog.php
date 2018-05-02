@@ -17,51 +17,37 @@
         }
 
         public function page($offset = 0) {
-
 			$page = 'blog';
 			$offset = $this->uri->segment(2, 0);
 			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
 				show_404();
 			} else {
+
 				//how many blogs will be shown in a page
 		        $limit = 5;
-		        
 		        $result = $this->Page_model->get_blog_posts($limit, $offset);
-
 		        $data['blogs'] = $result['data'];
-		        $data['count'] = $result['count'];
-		        
+		        $data['count'] = ($this->Page_model->get_active_blogs()) ? count($this->Page_model->get_active_blogs()) : 0;
+
 		        $config = array();
 		        $config['base_url'] = site_url("blog");
 		        $config['total_rows'] = $data['count'];
 		        $config['per_page'] = $limit;
-
-		        //which uri segment indicates pagination number
 		        $config['uri_segment'] = 2;
 		        $config['use_page_numbers'] = TRUE;
-
-		        //max links on a page will be shown
 		        $config['num_links'] = 4;
-
-		        //various pagination configuration
 		        $config['full_tag_open'] = '<nav><ul class="pager">';
-
 		        $config['prev_tag_open'] = '<li>';
 		        $config['prev_link'] = '&laquo;';
 		        $config['prev_tag_close'] = '</li>';
-
 		        $config['cur_tag_open'] = '<li class="active"><a href="#"><strong>';
 		        $config['cur_tag_close'] = '</strong></a></li>';
-
 		        $config['num_tag_open'] = '<li>';
 		        $config['num_tag_close'] = '</li>';
-
 		        $config['next_tag_open'] = '<li>';
 		        $config['next_link'] = '&raquo;';
 		        $config['next_tag_close'] = '</li>';		        
-
 		        $config['full_tag_close'] = '</ul></nav>';
-
 		        $this->pagination->initialize($config);
 		        $data['pagination'] = $this->pagination->create_links();
 

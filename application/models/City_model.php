@@ -48,6 +48,16 @@
 			}
 	    }
 
+	    public function get_city_from_state_paginate($state, $limit, $offset) {
+	        if ($offset > 0) {
+	            $offset = ($offset - 1) * $limit;
+	        }
+	        $this->db->where('state', $state);
+	        $this->db->order_by('name', 'ASC');
+	        $result['data'] = $this->db->get($this->table, $limit, $offset);
+	        return $result;
+	    }
+
 	    public function get_rand_city_from_state($state)
 	    {
 	    	$this->db->select('*');

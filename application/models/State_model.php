@@ -14,19 +14,24 @@
 	        parent::__construct();
 	    }
 
-	    public function get_states()
-	    {
-
+	    public function get_states() {
             $this->db->select('*');
 			$this->db->from($this->table);
-
             $dataset = $this->db->get();
-
 			if($dataset->num_rows()){
 				return $dataset->result();
 			} else {
 				return FALSE;
 			}
+	    }
+
+	    public function get_states_paginate($limit, $offset) {
+	        if ($offset > 0) {
+	            $offset = ($offset - 1) * $limit;
+	        }
+	        $this->db->order_by('state', 'ASC');
+	        $result['data'] = $this->db->get($this->table, $limit, $offset);
+	        return $result;
 	    }
 
 	    public function get_state_from_abbrev($abbrev)

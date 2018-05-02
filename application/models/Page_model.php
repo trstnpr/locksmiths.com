@@ -250,27 +250,32 @@
 	        if ($offset > 0) {
 	            $offset = ($offset - 1) * $limit;
 	        }
-
 	        $this->db->where('layout', 'post');
 	        $this->db->where('status', 1);
 	        $this->db->order_by('created_at', 'DESC');
-
 	        $result['data'] = $this->db->get($this->table, $limit, $offset);
 	        $result['count'] = $this->db->count_all_results($this->table);
-
 	        return $result;
 	    }
 
-	    public function get_key_services() {
+	    public function get_active_blogs() {
+	    	$this->db->where('layout', 'post');
+	        $this->db->where('status', 1);
+	        $dataset = $this->db->get($this->table);
+	        if($dataset->num_rows()){
+				return $dataset->result();
+			} else {
+				return FALSE;
+			}
+	    }
 
+	    public function get_key_services() {
 	    	$this->db->select('*');
 			$this->db->from($this->table);
 			$this->db->where('layout', 'page');
 			$this->db->where('priority', 1);
 			$this->db->where('status', 1);
-
             $dataset = $this->db->get();
-
 			if($dataset->num_rows()){
 				return $dataset->result();
 			} else {

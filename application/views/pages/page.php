@@ -44,19 +44,7 @@
 
 					<div class="aside">
 						
-						<div class="inner-searchform">
-							
-							<div class="widget-header">
-								<h3>Search</h3>
-							</div>
-
-							<div class="widget-body">
-								
-								<?php include('parts/form-search-aside.php'); ?>
-
-							</div>
-
-						</div>
+						<?php include('parts/form-search-aside.php'); ?>
 
 						<hr/>
 

@@ -52,8 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // FRONTEND
 $route['default_controller'] = 'app';
 $route['states'] = 'app/states';
+$route['states/(.+)'] = 'app/states';
 $route['test'] = 'app/test';
-$route['state/(:any)'] = 'app/state';
+$route['state/(.+)'] = 'app/state';
+$route['state/(.+)/(.+)'] = 'app/state';
 $route['zip/(:num)'] = 'app/zip';
 $route['city/(:any)'] = 'app/city';
 

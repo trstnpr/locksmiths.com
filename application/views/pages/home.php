@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <div class="home-content">
     <section class="section-banner data-img" data-bg="<?php echo base_url('build/images/banner-bg-10.jpg'); ?>" >
     	<div class="overlay">

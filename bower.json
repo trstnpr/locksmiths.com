@@ -37,6 +37,7 @@
     "datatables.net": "^1.10.15",
     "datatables.net-bs": "^2.1.1",
     "datatables.net-responsive": "^2.1.1",
-    "datatables.net-responsive-bs": "^2.1.1"
+    "datatables.net-responsive-bs": "^2.1.1",
+    "lity": "^2.3.1"
   }
 }
