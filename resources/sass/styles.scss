@@ -5,7 +5,7 @@
 @import "../../bower_components/alertify.js/themes/alertify.default";
 @import "../../bower_components/slick-carousel/slick/slick.scss";
 @import "../../bower_components/slick-carousel/slick/slick-theme.scss";
-@import "../../bower_components/lity/dist/lity";
+// @import "../../bower_components/lity/dist/lity";
 @import url('http://fonts.googleapis.com/css?family=Questrial');
 @import url('http://fonts.googleapis.com/css?family=Oswald:300,400');
 
@@ -153,7 +153,7 @@ header {
 					transition:color 250ms ease;
 					transition:padding-bottom 250ms ease;
 					transition:border-bottom 250ms ease;
-					&:hover {
+					&:hover, &:focus {
 						color:$tertiary;
 						padding-bottom:18px;
 						border-bottom:2px solid $primary;
@@ -740,41 +740,42 @@ header {
 	.section-searchresults {
 		padding:40px 0;
 		background-color:#fff;
-
 		.section-content {
 			.result-wrap {
 				.result-item-wrap {
 					margin-bottom:20px;
-					background-color:$quarternary;
 					padding:20px;
 					border-top:4px solid $primary;
 					@extend .box-shadow;
-					.result-details {
-						h3 {
-							font-size:20px;
-							line-height:1.5;
-						}
-						hr {
-							border-color:#ccc;
-							margin:10px 0;
-						}
-						.permalink {
-							display:inline-block;
-							line-height:2;
-							font-size:13px;
-							color:rgba(0,0,0,0.75);
-						}
-						ul {
-							margin-bottom:0;
-
-							.fa {
-								color:$secondary;
-							}
+					// .result-details {
+					// 	h3 {
+					// 		font-size:20px;
+					// 		line-height:1.5;
+					// 	}
+					// 	hr {
+					// 		border-color:#ccc;
+					// 		margin:10px 0;
+					// 	}
+					// 	.permalink {
+					// 		display:inline-block;
+					// 		line-height:2;
+					// 		font-size:13px;
+					// 		color:rgba(0,0,0,0.75);
+					// 	}
+					// 	ul {
+					// 		margin-bottom:0;
+					// 		.fa {
+					// 			color:$tertiary;
+					// 		}
+					// 	}
+					// }
+					.media {
+						.media-left .media-object {
+							height:64px;
+							width:64px;
 						}
 					}
-
 				}
-
 			}
 		}
 	}
@@ -1221,7 +1222,6 @@ header {
 	    display: none;
 
 	}
-
 }
 /** END MATERIALIZE CARD **/
 

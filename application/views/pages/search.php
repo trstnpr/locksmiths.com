@@ -8,53 +8,45 @@
 			</div>
 		</div>
 	</section>
-
     <section class="section-searchresults">
     	<div class="container">
     		<div class="row">
     			<div class="col-md-8">
     				<div class="section-content">
 			    		<?php if($search_data != NULL) { ?>
-
 				    		<div class="result-wrap">
-
 				    		<?php foreach($search_data as $result) {
-				    			$rand_int = array_rand(range(1,12), 1);
-				    			$ads_img = 'build/images/thumb-ad/'.$rand_int.'.jpg';
+				    			$mapAddress = getLocation($result->name.', '.strtoupper($result->state));
+								$coordinates = $mapAddress->lat.','.$mapAddress->lng;
+								// dump(static_map($coordinates, '500x500', 17));
 				    		?>
 				    			<div class="result-item-wrap">
-
-					    			<div class="result-details">
-										<h3 clas="result-title">
+									<div class="media">
+										<div class="media-left">
 											<a href="<?php echo base_url('city/'.$result->slug); ?>">
-												Locksmith Boy Services in <strong class="txt-inblock"><?php echo $result->name.', '.strtoupper($result->state); ?></strong>
+												<img class="media-object" src="<?php echo static_map($coordinates, '500x500', 17); ?>" alt="<?php echo $result->name.', '.strtoupper($result->state); ?>" title="<?php echo $result->name.', '.strtoupper($result->state); ?>">
 											</a>
-										</h3>
-										<a class="permalink" href="<?php echo base_url('city/'.$result->slug); ?>"><?php echo base_url('city/'.$result->slug); ?></a>
-										<ul class="fa-ul">
-											<li><i class="fa fa-location-arrow fa-li"></i> <?php echo $result->name.', '.strtoupper($result->state); ?></li>
-											<li><i class="fa fa-phone fa-li"></i> <?php echo $result->phone; ?></li>
-										</ul>
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">
+												Locksmiths Services in <strong class="txt-inblock"><?php echo $result->name.', '.strtoupper($result->state); ?></strong>
+											</h4>
+											<p><small><?php echo base_url('city/'.$result->slug); ?></small></p>
+											<p><?php echo truncate($result->zip_code, 200); ?></p>
+											<a href="tel:<?php echo $result->phone; ?>" class="btn btn-primary btn-sm">Hotline <?php echo $result->phone; ?></a>
+										</div>
 									</div>
-
 						    	</div>
-
 					    	<?php } ?>
-
 				    		</div>
-
 			    		<?php } else { ?>
 
 			    		<div class="well">
 			    			<h3 class="txt-center" style="font-weight:bold;">No Results Found.</h3>
 			    		</div>
-
 			    		<?php } ?>
-
     				</div>
-
     			</div>
-
     			<div class="col-md-4">
     				<div class="aside">
     					<?php include('parts/form-search-aside.php'); ?>
@@ -62,15 +54,9 @@
     					<?php include('parts/widget-aside-search-map.php'); ?>
     					<br/>
 		    			<?php include('parts/widget-aside-recent-blog.php'); ?>
-
 	    			</div>
-
     			</div>
-
     		</div>
-
     	</div>
-
     </section>
-
 </div>

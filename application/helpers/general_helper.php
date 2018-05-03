@@ -416,6 +416,6 @@
     }
 
     function static_map_key() {
-        $key = the_config('gmap_apikey');
+        $key = the_config('gmap_static_apikey');
         return $key;
     }

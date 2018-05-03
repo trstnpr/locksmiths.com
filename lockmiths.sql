@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2018 at 02:29 PM
+-- Generation Time: May 03, 2018 at 01:22 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -8472,9 +8472,9 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `key`, `value`, `label`, `input_type`, `description`) VALUES
-(1, 'site_name', 'Locksmiths', 'Site Name', 'text', 'Website Name'),
-(2, 'site_title', 'Locksmiths', 'Title', 'text', 'Site Title'),
-(3, 'meta_title', 'Locksmiths', 'Meta Title', 'text', 'Meta Title'),
+(1, 'site_name', 'Locqsmiths', 'Site Name', 'text', 'Website Name'),
+(2, 'site_title', 'Locqsmiths', 'Title', 'text', 'Site Title'),
+(3, 'meta_title', 'Locqsmiths', 'Meta Title', 'text', 'Meta Title'),
 (4, 'meta_keyword', '', 'Meta Keywords', 'text', 'Meta Keywords'),
 (5, 'meta_description', '', 'Meta Description', 'textarea', 'Meta Description'),
 (6, 'tag_line', 'Lorem ipsum dolor sit amet', 'Tagline', 'text', 'Tagline'),
@@ -8484,13 +8484,13 @@ INSERT INTO `configuration` (`id`, `key`, `value`, `label`, `input_type`, `descr
 (18, 'full_address', 'NA', 'Full Address', 'text', 'Full Address'),
 (19, 'phone_number', '(000) 000-0000', 'Phone Number', 'text', 'Phone Number'),
 (20, 'admin_email', 'cameo.volundr@yopmail.com', 'System Email', 'text', 'Admin Email'),
-(21, 'smtp_user', 'aubreyyayates@gmail.com', 'SMTP User', 'text', 'SMTP Mailer User'),
-(22, 'smtp_password', 'aubreymeyates', 'SMTP Password', 'text', 'SMTP Mailer Password'),
-(23, 'ga_id', 'UA-118277899-1', 'Google Analytics ID', 'text', 'Google Analytics Provider ID'),
-(24, 'gmap_apikey', 'AIzaSyCDZ3yLkgzuSXa4vPaps81oSaYyXLSyhjg', 'Google Maps API Key', 'text', 'Google Maps API Key'),
-(25, 'gr_site_key', '6LeX6VUUAAAAAEWMusXW_RBedCRnJNIM4HWc9FDN', 'GR Site Key', 'text', 'Google Recaptcha Site key'),
-(26, 'gr_secret_key', '6LeX6VUUAAAAAMOEfvTDLrmP0BnS0LkHoci0pV0E', 'GR Secret Key', 'text', 'Google Recaptcha Secret key'),
-(27, 'gmap_static_apikey', 'AIzaSyAwfkk6nEsEp0ycIelJSVPDaLpbmQwT_AQ', 'Google Static Maps API Key', 'text', 'Google Static Maps API Key');
+(21, 'smtp_user', 'arthuragoncillo15@gmail.com', 'SMTP User', 'text', 'SMTP Mailer User'),
+(22, 'smtp_password', '510152025', 'SMTP Password', 'text', 'SMTP Mailer Password'),
+(23, 'ga_id', 'UA-118675277-1', 'Google Analytics ID', 'text', 'Google Analytics Provider ID'),
+(24, 'gmap_apikey', 'AIzaSyC7rSQSGSJb9tWmvvz9DSUktsEMCcVg6iM', 'Google Maps API Key', 'text', 'Google Maps API Key'),
+(25, 'gr_site_key', '6Lft9lYUAAAAAM9Ks8feubJI-80GdWxFdUvHcDWL', 'GR Site Key', 'text', 'Google Recaptcha Site key'),
+(26, 'gr_secret_key', '6Lft9lYUAAAAAP4u8XuihEeEM33bxBWOz2VBLfMP', 'GR Secret Key', 'text', 'Google Recaptcha Secret key'),
+(27, 'gmap_static_apikey', 'AIzaSyC7rSQSGSJb9tWmvvz9DSUktsEMCcVg6iM', 'Google Static Maps API Key', 'text', 'Google Static Maps API Key');
 
 -- --------------------------------------------------------
 

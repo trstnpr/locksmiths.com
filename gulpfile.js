@@ -35,7 +35,7 @@ gulp.task('master-script', function() {
 		'bower_components/datatables.net/js/jquery.dataTables.js',
 		'bower_components/datatables.net-bs/js/dataTables.bootstrap.js',
 		'bower_components/datatables.net-responsive/js/dataTables.responsive.js',
-		'bower_components/lity/dist/lity.min.js',
+		// 'bower_components/lity/dist/lity.min.js',
 		'resources/js/FuzzySearch.js',
 		'resources/js/popper.js',
 		'resources/js/bootstrap-tagsinput.min.js'

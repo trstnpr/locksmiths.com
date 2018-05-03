@@ -74,11 +74,11 @@
 				$data['title'] = 'Locksmiths by '.ucwords($page).' - '.the_config('site_name');
 				$data['location'] = 'United States';
 
-				$data['title'] = "Find Professional Locksmith Services by State - ".the_config('site_name');
+				$data['title'] = "Find Professional ".the_config('site_name')." Services by State - ".the_config('site_name');
 				// META
 				$data['meta_title'] = $data['title'];
 				$data['meta_keyword'] = "";
-				$data['meta_description'] = "LocksmithFindr helps you find locksmith experts in every State.";
+				$data['meta_description'] = the_config('site_name')." helps you find locksmith experts in every State.";
 
 				$this->load->view('templates/header', $data);
 				$this->load->view('pages/'.$page, $data);
@@ -122,11 +122,11 @@
 				        $this->pagination->initialize($config);
 				        $data['pagination'] = $this->pagination->create_links();
 
-						$data['title'] = "Find Expert Locksmiths in ".$data_state->state." - ".the_config('site_name');
+						$data['title'] = "Find Expert ".the_config('site_name')." in ".$data_state->state." - ".the_config('site_name');
 						// META
 						$data['meta_title'] = $data['title'];
 						$data['meta_keyword'] = "";
-						$data['meta_description'] = "LocksmithFindr helps you find the most reliable locksmith companies in ".$data_state->state;
+						$data['meta_description'] = the_config('site_name')." helps you find the most reliable locksmith companies in ".$data_state->state;
 						$this->load->view('templates/header', $data);
 						$this->load->view('pages/'.$page, $data);
 						$this->load->view('templates/footer');
@@ -170,17 +170,17 @@
 							$business = join(', ', $apibiz);
 							$exact = array_sum($hit).' Exact Results';
 							$api_count = ($exact != 0) ? $exact : count($data['res_count']).' Suggestions';
-							$m_desc = "Top Locksmiths in ".$city.", ".$state_abbrev." - ".$business;
+							$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev." - ".$business;
 						} else {
 							$api_count = '0 Results';
-							$m_desc = "Top Locksmiths in ".$city.", ".$state_abbrev;
+							$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev;
 						}
 					}
 
 					// META
-					$data['title'] = "Look for 24/7 Locksmiths ".$city.", ".$state_abbrev." | ".$api_count." | As of ".recent_my()." - ".the_config('site_name');
+					$data['title'] = "Look for 24/7 ".the_config('site_name')." ".$city.", ".$state_abbrev." | ".$api_count." | As of ".recent_my()." - ".the_config('site_name');
 					$data['meta_title'] = $data['title'];
-					$data['meta_keyword'] = "24/7 Locksmith services in ".$city.", ".$state_abbrev.", residential locksmith service in ".$city.", ".$state_abbrev.", commercial locksmith service in ".$city.", ".$state_abbrev.", automotive locksmith service in ".$city.", ".$state_abbrev.", emergency locksmith service in ".$city.", ".$state_abbrev.", industrial locksmith service in ".$city.", ".$state_abbrev;
+					$data['meta_keyword'] = "24/7 ".the_config('site_name')." services in ".$city.", ".$state_abbrev.", residential ".the_config('site_name')." service in ".$city.", ".$state_abbrev.", commercial ".the_config('site_name')." service in ".$city.", ".$state_abbrev.", automotive ".the_config('site_name')." service in ".$city.", ".$state_abbrev.", emergency ".the_config('site_name')." service in ".$city.", ".$state_abbrev.", industrial ".the_config('site_name')." service in ".$city.", ".$state_abbrev;
 					$data['meta_description'] = $m_desc;
 					
 					$this->load->view('templates/header', $data);
@@ -232,9 +232,9 @@
 					}
 
 					// META
-					$data['title'] = "Notable 24/7 Locksmiths ".$data['zip'].", ".strtoupper($data['city_data']->state)." | ".$api_count." | As of ".recent_my()." - ".the_config('site_name');
+					$data['title'] = "Notable 24/7 ".the_config('site_name')." ".$data['zip'].", ".strtoupper($data['city_data']->state)." | ".$api_count." | As of ".recent_my()." - ".the_config('site_name');
 					$data['meta_title'] = $data['title'];
-					$data['meta_keyword'] = "24/7 Locksmith services in ".$data['zip'].", ".strtoupper($data['city_data']->state).", residential locksmith service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", commercial locksmith service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", automotive locksmith service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", emergency locksmith service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", industrial locksmith service in ".$data['zip'].", ".strtoupper($data['city_data']->state);
+					$data['meta_keyword'] = "24/7 ".the_config('site_name')." services in ".$data['zip'].", ".strtoupper($data['city_data']->state).", residential ".the_config('site_name')." service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", commercial ".the_config('site_name')." service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", automotive ".the_config('site_name')." service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", emergency ".the_config('site_name')." service in ".$data['zip'].", ".strtoupper($data['city_data']->state).", industrial ".the_config('site_name')." service in ".$data['zip'].", ".strtoupper($data['city_data']->state);
 					$data['meta_description'] = $m_desc;
 					
 					$this->load->view('templates/header', $data);
@@ -256,11 +256,11 @@
 
 			if($g_response->success == 1) {
 				$emailConfig = [
-		            'protocol' => 'smtp', 
-		            'smtp_host' => 'ssl://smtp.googlemail.com', 
-		            'smtp_port' => 465, 
-		            'smtp_user' => 'stevendaleohtylerr@gmail.com', 
-		            'smtp_pass' => 'green5@123',
+		            // 'protocol' => 'smtp', 
+		            // 'smtp_host' => 'ssl://smtp.googlemail.com', 
+		            // 'smtp_port' => 465, 
+		            // 'smtp_user' => the_config('smtp_user'), 
+		            // 'smtp_pass' => the_config('smtp_password'),
 		            'mailtype' => 'html', 
 		            'charset' => 'iso-8859-1'
 		        ];
@@ -271,7 +271,7 @@
 		        ];
 		       
 		        // $to = array($mdata['email']);
-		        $to = 'stevendaleohtylerr@gmail.com';
+		        $to = the_config('admin_email');
 		        $subject = $mdata['subject'];
 		      	$message = $mdata['message'];
 		        $this->load->library('email', $emailConfig);
@@ -295,10 +295,11 @@
 		}
 
 		public function test() {
-			$data['api'] = getPlacesAPI('Locksmith in 90013 Los Angeles, CA');
+			// $data['api'] = getPlacesAPI('Locksmith in 90013 Los Angeles, CA');
 			// $data['api'] = $this->googlemap->getGeoCode('Billings, MT');
 			
-			dump($data['api']);
+			// dump($data['api']);
+			show_404();
 		}
 
 	}

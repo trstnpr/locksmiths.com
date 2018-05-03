@@ -51,7 +51,7 @@
 		        $this->pagination->initialize($config);
 		        $data['pagination'] = $this->pagination->create_links();
 
-				$data['title'] = 'Blog | '.the_config('site_name').' - Unlocks Expert Services For YOU!';
+				$data['title'] = 'Blog | '.the_config('site_name');
 				$data['meta_title'] = 'Blog | '.the_config('site_name');
 				$data['meta_keyword'] = '';
 				$data['meta_description'] = '';
