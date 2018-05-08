@@ -155,26 +155,25 @@
 					$keyword = 'Locksmith in '.$data['location'];
 
 					$api = getPlacesAPI($keyword);
-					$data['res_count'] = (isset($api)) ? $api : 0;
 					$data['api'] = $api;
 					if($api) {
-						if($data['res_count'] > 0) {
-							$hit = array();
-							$apibiz = array();
-							foreach($api as $api_place) {
-								if($api_place['address']->addressLocality == $city) {
-									$hit[] = 1;
-								}
-								$apibiz[] = $api_place['name'];
+						$data['res_count'] = (isset($api)) ? count($api) : 0;
+						$hit = array();
+						$apibiz = array();
+						foreach($api as $api_place) {
+							if($api_place['address']->addressLocality == $city) {
+								$hit[] = 1;
 							}
-							$business = join(', ', $apibiz);
-							$exact = array_sum($hit).' Exact Results';
-							$api_count = ($exact != 0) ? $exact : count($data['res_count']).' Suggestions';
-							$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev." - ".$business;
-						} else {
-							$api_count = '0 Results';
-							$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev;
+							$apibiz[] = $api_place['name'];
 						}
+						$business = join(', ', $apibiz);
+						$exact = array_sum($hit).' Exact Results';
+						$api_count = ($exact != 0) ? $exact : count($data['res_count']).' Suggestions';
+						$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev." - ".$business;
+					} else {
+						$data['res_count'] = 0;
+						$api_count = '0 Results';
+						$m_desc = "Top ".the_config('site_name')." in ".$city.", ".$state_abbrev;
 					}
 
 					// META
@@ -199,7 +198,6 @@
 			} else {
 				$data['zip'] = $this->uri->segment(2, 0);
 				if(is_numeric($data['zip']) AND strlen($data['zip']) == 5) {
-
 					$city_data = $this->City_model->get_city_from_zip($data['zip']);
 					$data['city_data'] = $city_data[0];
 					$data['state'] = $this->State_model->get_state_from_abbrev($data['city_data']->state)[0];
@@ -211,24 +209,27 @@
 					$api = getPlacesAPI($keyword);
 					$data['res_count'] = (isset($api)) ? count($api) : 0;
 					$data['api'] = $api;
+
+					$api = getPlacesAPI($keyword);
+					$data['api'] = $api;
 					if($api) {
-						if($data['res_count'] > 0) {
-							$hit = array();
-							$apibiz = array();
-							foreach($api as $api_place) {
-								if($api_place['address']->postalCode == $data['zip']) {
-									$hit[] = 1;
-								}
-								$apibiz[] = $api_place['name'];
+						$hit = array();
+						$apibiz = array();
+						$data['res_count'] = (isset($api)) ? $api : 0;
+						foreach($api as $api_place) {
+							if($api_place['address']->postalCode == $data['zip']) {
+								$hit[] = 1;
 							}
-							$business = join(', ', $apibiz);
-							$exact = array_sum($hit).' Exact Results';
-							$api_count = ($exact != 0) ? $exact : count($data['res_count']).' Suggestions';
-							$m_desc = "Featured Locksmiths in ".$data['zip'].", ".strtoupper($data['city_data']->state)." - ".$business;
-						} else {
-							$api_count = '0 Results';
-							$m_desc = "Featured Locksmiths in ".$data['zip'].", ".strtoupper($data['city_data']->state);
+							$apibiz[] = $api_place['name'];
 						}
+						$business = join(', ', $apibiz);
+						$exact = array_sum($hit).' Exact Results';
+						$api_count = ($exact != 0) ? $exact : count($data['res_count']).' Suggestions';
+						$m_desc = "Featured Locksmiths in ".$data['zip'].", ".strtoupper($data['city_data']->state)." - ".$business;
+					} else {
+						$data['res_count'] = 0;
+						$api_count = '0 Results';
+						$m_desc = "Featured Locksmiths in ".$data['zip'].", ".strtoupper($data['city_data']->state);
 					}
 
 					// META
@@ -295,11 +296,11 @@
 		}
 
 		public function test() {
-			// $data['api'] = getPlacesAPI('Locksmith in 90013 Los Angeles, CA');
+			$data['api'] = getPlacesAPI('Locksmith in 90013 Los Angeles, CA');
 			// $data['api'] = $this->googlemap->getGeoCode('Billings, MT');
 			
-			// dump($data['api']);
-			show_404();
+			dump($data['api']);
+			// show_404();
 		}
 
 	}
